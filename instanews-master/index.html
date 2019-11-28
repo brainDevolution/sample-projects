@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>instanews</title>
+    <link href="project-02\assets\images\favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="build\css\style.min.css" media="screen" title="no title">
+    <link rel="stylesheet" href="heapbox\themes\pumpkin\css\pumpkin.css" type="text/css" media="screen">
+  </head>
+
+  <body>
+    <header class="header">
+
+
+  		<div class="container">
+  				<img class="letter" src="assets\images\nyt-logo.svg" alt="this is the logo" />
+  				<div class="options">
+  				<p>Choose a section:</p>
+  				<div class = "selector" >
+  					<select name="nav" id="selector">
+  						<option value="" id="first">Sections...</option>
+  						<option value="travel">Travel</option>
+  						<option value="science">Science</option>
+  						<option value="business">Business</option>
+  						<option value="sports">Sports</option>
+  						<option value="technology">Technology</option>
+  						<option value="fashion">Fashion</option>
+  					</select>
+  				</div>
+  			</div>
+  		</div>
+  	</header>
+
+
+    	<section class="ajax-loader container">
+    		<ul class="article-list"></ul>
+    	</section>
+
+    <footer class="footer">
+      <p class="footer-font">
+        © Copyright 2016 INSTANEWS
+      </p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+    <script src="heapbox/src/jquery.heapbox-0.9.4.min.js"></script>
+    <script src="build\js\main.min.js"></script>
+    <script src="jquery.animateAuto.js"></script>
+
+  </body>
+</html>

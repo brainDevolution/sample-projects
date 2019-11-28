@@ -1,0 +1,43 @@
+
+//MEDIA QUERY WITH SASS
+$desktop-width: 1000px;
+$tablet-width: 600px;
+$mobile-width: 480px;
+
+//color variable declaration
+$white: #ffffff;
+$grey: #c2c2c2;
+
+//media query mixin declaration
+@mixin desktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (min-width: $mobile-width) {
+    @content;
+  }
+}
+
+//Styling
+//main elements
+
+html {
+  height: 100%;
+  font-family: 'open_sans', sans-serif;
+  font-size: 16px;
+  color: $white;
+}
+
+body {
+  background-color: black;
+  box-sizing: border-box;
+}
