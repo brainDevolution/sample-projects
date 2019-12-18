@@ -1,0 +1,256 @@
+$content-width: 1000px;
+$breakpoint: 799px;
+$nav-height: 70px;
+$nav-background: transparent;
+$hover-font: #df731a;
+$nav-font: 'Raleway' , sans-serif;
+$nav-font-color: #7c3a3a;
+$link-hover-color: #2581dc;
+
+// nav bar styling and breakpoints
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html,
+  body{
+    background-color: #2d112b;
+    overflow-x: hidden;
+  }
+
+
+nav {
+    float: right;
+    z-index: 9999;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      li {
+          float: left;
+          position: relative;
+        a {
+            position: relative;
+            transition: ease-in;
+            display: block;
+            padding: 0 20px;
+            font-family: $nav-font;
+            line-height: $nav-height;
+            background: $nav-background;
+            color: $nav-font-color;
+            text-decoration: none;
+          &:hover {
+              
+              color: $hover-font;
+          }
+          &:not(:only-child):after {
+              padding-left: 4px;
+              content: ' ▾';
+          }
+        } // Dropdown list
+        ul li {
+            min-width: 190px;
+        
+          a {
+              padding: 15px;
+              line-height: 20px;
+
+          }
+        }
+      }
+    }
+  }
+  .navigation {
+      height: $nav-height;
+      background: $nav-background;
+      position: relative;
+      
+  }
+  .nav-container {
+      max-width: $content-width;
+      margin: 0 auto;
+  }
+  .brand {
+      position: absolute;
+      padding-left: 20px;
+      float: left;
+      line-height: $nav-height;
+      text-transform: uppercase;
+      font-size: 1.4em;
+      a,
+      a:visited {
+          color: $nav-font-color;
+          text-decoration: none;
+      }
+  }
+  .nav-dropdown {
+      position: absolute;
+      z-index: 1;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+      display: none;
+  }
+  .nav-mobile {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-right: 8px;
+      background: $nav-background;
+      height: $nav-height;
+      width: $nav-height;
+  }
+
+ 
+// scss for hamburger animation
+  #nav-toggle {
+    position: absolute;
+    left: 18px;
+    top: 22px;
+    cursor: pointer;
+    padding: 10px 35px 16px 0px;
+    span,
+    span:before,
+    span:after {
+      cursor: pointer;
+      border-radius: 1px;
+      height: 5px;
+      width: 35px;
+      background: $nav-font-color;
+      position: absolute;
+      display: block;
+      content: '';
+      transition: all 300ms ease-in-out;
+    }
+    span:before {
+      top: -10px;
+    }
+    span:after {
+      bottom: -10px;
+    }
+    &.active span {
+      background-color: transparent;
+      &:before,
+      &:after {
+        top: 0;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+//   parallax styling
+
+
+
+
+.parallax {
+  perspective: 100px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  top: 0;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  margin-left: -1500px;
+  
+}
+
+.parallax__layer{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  
+
+  
+  img{
+    display: block;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.parallax__cover{
+  background: #2D112B;
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 2000px;
+  z-index: 2;
+  .content-area-1 {
+    background-color: #2d112b;
+    padding-top: 100px;
+    
+    h3 {
+        
+        display:flex;
+        justify-content: center;
+        margin-left: 900px;
+        color: $nav-font-color;
+    }
+}
+  
+  
+}
+
+$parallax__layers: 6;
+
+@for $i from 0 through $parallax__layers {
+  $x: ($parallax__layers - $i) / 2;
+  .parallax__layer__#{$i}{
+     transform: translateZ(-100 * $x#{px}) scale($x + 1);
+  }
+}
+
+// media queries
+
+@media only screen and (max-width: 799px) {
+    .nav-mobile {
+        display: block;
+    }
+      nav {
+          display: flex;
+          justify-content: flex-end;
+          width: 100%;
+          padding: $nav-height 0 15px;
+          
+
+          ul {
+              display: none;
+              li {
+                  float: none;
+                  a {
+                      padding: 15px;
+                      line-height: 20px;
+
+                  }
+                  ul li a {
+                      padding-left: 30px;
+                  }
+              }
+          }
+      }
+      .nav-dropdown {
+          position: static;
+      }
+  }
+
+  @media screen and (min-width: 799px) {
+      .nav-list {
+          display: block !important;
+      }
+    
+  }
